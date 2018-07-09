@@ -14,7 +14,10 @@
       "semicolon": [true, "always"],
       "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
       "triple-equals": true,
-      "no-console": false
+      "no-console": false,
+      "sort-imports": false,
+      "object-literal-sort-keys": false,
+      "ordered-imports": false
     },
     "rulesDirectory": []
 }
