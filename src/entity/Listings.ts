@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 enum Packaging {
   STK = 'STK',
@@ -9,7 +9,7 @@ enum Packaging {
   BOT = 'BOT',
 }
 
-@Entity('Listings', { schema: 'food' })
+@Entity('Listings', { schema: 'public' })
 export class Listings {
 
     @PrimaryGeneratedColumn()
@@ -36,17 +36,11 @@ export class Listings {
     })
     inventory: number;
 
-    @Column({
-      nullable: false,
-      type: 'datetime',
-      default: 'CURRENT_TIMESTAMP',
-    })
+    @CreateDateColumn()
     createdAt: Date;
 
-    @Column({
-      type: 'datetime',
-      onUpdate: 'CURRENT_TIMESTAMP',
-      nullable: true,
+    @UpdateDateColumn({
+      nullable: true
     })
     updatedAt: Date | null;
 }

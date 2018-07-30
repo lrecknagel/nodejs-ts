@@ -17,7 +17,7 @@ router.get('/', async (req: Request, res: Response) => {
   const allListings = await connection.manager.find(Listings);
   console.log(allListings);
 
-  return res.json({message: 'Listings'});
+  return res.json(allListings);
 });
 
 export default router;

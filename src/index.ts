@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', defaultRoutes);
 app.use('/list', listingsRoutes);
 
-const PORT = 3000;
+const PORT: number = 3000;
 app.listen(PORT, () => {
     console.log('Express server listening on port ' + PORT);
 });
