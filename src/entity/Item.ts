@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Cart } from './Cart';
 
 enum Packaging {
   STK = 'STK',
@@ -9,8 +10,8 @@ enum Packaging {
   BOT = 'BOT',
 }
 
-@Entity('Listings', { schema: 'public' })
-export class Listings {
+@Entity('Item', { schema: 'public' })
+export class Item {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -35,6 +36,9 @@ export class Listings {
       nullable: false,
     })
     inventory: number;
+
+    @ManyToMany(type => Cart, cart => cart.id)
+    carts: Cart[]
 
     @CreateDateColumn()
     createdAt: Date;

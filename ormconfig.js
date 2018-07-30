@@ -10,8 +10,9 @@ const ormconfig = {
   entities: [
     __dirname + "/dist/entity/*.js"
   ],
-  synchronize: true,
-  schema: 'public'
+  schema: 'public',
+  // synchronize: true,
+  // dropSchema: true,
 };
 
 module.exports = ormconfig;
